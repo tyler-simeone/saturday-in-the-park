@@ -18,7 +18,7 @@ const ParkArea = props => {
             <section>
                 <ul>
                 {parkareas.map(park =>
-                    <li>{park.name}</li>
+                    <li key={park.id}>{park.name}</li>
                 )}
                 </ul>
             </section>
