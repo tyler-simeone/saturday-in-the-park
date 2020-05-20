@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavBar from './components/nav/NavBar';
+import NavBar from './components/NavBar';
 import ApplicationViews from './components/ApplicationViews';
 
 const SaturdayApp = () => {
@@ -7,7 +7,7 @@ const SaturdayApp = () => {
     return (
         <>
             <NavBar />
-            <ApplicationViews />
+            {/* <ApplicationViews /> */}
         </>
     );
 };
