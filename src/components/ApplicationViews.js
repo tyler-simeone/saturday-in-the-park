@@ -8,13 +8,13 @@ const ApplicationViews = props => {
     return (
       <React.Fragment>
         {/* Home/Park Areas */}
-        {/* <Route
+        <Route
           exact
           path="/"
           render={props => {
             return <ParkArea {...props} />;
           }}
-        /> */}
+        />
 
         {/* Authentication */}
         {/* <Route
