@@ -7,7 +7,7 @@ const SaturdayApp = () => {
     return (
         <>
             <NavBar />
-            {/* <ApplicationViews /> */}
+            <ApplicationViews />
         </>
     );
 };

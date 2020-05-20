@@ -9,10 +9,10 @@ const NavBar = () => {
         
         <div className="NavList">
             <ul>
-                <li>Park Areas</li>
-                <li>Itinerary</li>
-                <li>Login</li>
-                <li>Register</li>
+                <li><Link to="/">Park Areas</Link></li>
+                <li><a href="/itineraries">Itinerary</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
             </ul>
         </div>
       </header>
