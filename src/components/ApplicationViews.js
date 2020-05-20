@@ -33,13 +33,13 @@ const ApplicationViews = props => {
         /> */}
   
         {/* Itinerary */}
-        {/* <Route
+        <Route
           exact
-          path="/itineraries"
+          path="/myitinerary"
           render={props => {
             return <Itinerary {...props} />;
           }}
-        /> */}
+        />
       </React.Fragment>
     );
   };
