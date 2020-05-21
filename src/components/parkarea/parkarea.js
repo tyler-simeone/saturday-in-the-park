@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const ParkArea = props => {
     const [parkareas, setParkAreas] = useState([]);
@@ -18,13 +19,9 @@ const ParkArea = props => {
             <section>
                 <ul>
                 {parkareas.map(park =>
-                    <>
-                    <p key={park.id}>{park.name}</p>
-                        {/* <p>{park.attractions.forEach(attraction => (
-                            // console.log(attraction.name)
-                            <p key={attraction.id}>{attraction.name}</p>
-                        ))}</p> */}
-                    </>
+                    <Link key={park.id} to={`/park/${park.id}`}>
+                        <p>{park.name}</p>
+                    </Link>
                 )}
                 </ul>
             </section>

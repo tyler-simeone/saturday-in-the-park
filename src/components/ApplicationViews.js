@@ -1,6 +1,7 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React from "react";
-import ParkArea from './parkarea'
+import ParkArea from './parkarea/parkarea'
+import ParkAreaDetail from './parkarea/parkdetail'
 import Itinerary from './itinerary'
 
 const ApplicationViews = props => {
@@ -13,6 +14,18 @@ const ApplicationViews = props => {
           path="/"
           render={props => {
             return <ParkArea {...props} />;
+          }}
+        />
+        <Route
+          exact
+          path="/park/:parkId(\d+)"
+          render={props => {
+            return (
+                <ParkAreaDetail 
+                parkAreaId={parseInt(props.match.params.parkId)}
+                {...props} 
+                />
+            );
           }}
         />
 
@@ -33,13 +46,13 @@ const ApplicationViews = props => {
         /> */}
   
         {/* Itinerary */}
-        {/* <Route
+        <Route
           exact
-          path="/itineraries"
+          path="/myitinerary"
           render={props => {
             return <Itinerary {...props} />;
           }}
-        /> */}
+        />
       </React.Fragment>
     );
   };
