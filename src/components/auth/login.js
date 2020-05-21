@@ -1,20 +1,27 @@
 import React, { useState } from "react";
 
 const Login = (props) => {
-  //   const [credentials, setCredentials] = useState({ email: "", password: "" });
+    const [credentials, setCredentials] = useState({ username: "", password: "" });
 
   // Update state whenever an input field is edited
-  //   const handleFieldChange = (evt) => {
-  //     const stateToChange = { ...credentials };
-  //     stateToChange[evt.target.id] = evt.target.value;
-  //     setCredentials(stateToChange);
-  //   };
+    const handleFieldChange = (evt) => {
+      const stateToChange = { ...credentials };
+      stateToChange[evt.target.id] = evt.target.value;
+      setCredentials(stateToChange);
+    };
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    return fetch("http://127.0.0.1:8000/login")
-        .then(props.history.push("/"));
+    return fetch("http://127.0.0.1:8000/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(credentials)
+    }).then(resp => resp.json())
+    .then(parsedResp => sessionStorage.setItem("Token", parsedResp.token))
+    .then(props.history.push("/"));
   };
 
   return (
@@ -25,8 +32,9 @@ const Login = (props) => {
         <div className="formgrid">
 
           <label htmlFor="username">Username:</label>
-          {/* onChange={handleFieldChange} */}
+          
           <input
+            onChange={handleFieldChange}
             type="text"
             id="username"
             placeholder="username"
@@ -35,14 +43,15 @@ const Login = (props) => {
           />
 
           <label htmlFor="inputPassword">Password</label>
-          {/* onChange={handleFieldChange} */}
+          
           <input
+            onChange={handleFieldChange}
             type="password"
             id="password"
             placeholder="Password"
             required=""
           />
-          
+
         </div>
         <button type="submit">Sign in</button>
       </fieldset>
