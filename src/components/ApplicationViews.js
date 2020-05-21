@@ -3,6 +3,7 @@ import React from "react";
 import ParkArea from './parkarea/parkarea'
 import ParkAreaDetail from './parkarea/parkdetail'
 import Itinerary from './itinerary/itinerary'
+import Login from './auth/login'
 
 const ApplicationViews = props => {
   
@@ -33,7 +34,7 @@ const ApplicationViews = props => {
         <Route
           path="/login"
           render={props => {
-            return <Login setUser={setUser} {...props} />;
+            return <Login {...props} />;
           }}
         />
   
