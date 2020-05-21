@@ -30,14 +30,14 @@ const ApplicationViews = props => {
         />
 
         {/* Authentication */}
-        {/* <Route
+        <Route
           path="/login"
           render={props => {
             return <Login setUser={setUser} {...props} />;
           }}
         />
   
-        <Route
+        {/* <Route
           exact
           path="/Register"
           render={props => {
