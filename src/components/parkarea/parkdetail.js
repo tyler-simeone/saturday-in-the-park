@@ -1,25 +1,45 @@
 import React, { useState, useEffect } from 'react';
 
 const ParkAreaDetail = props => {
-    const [parkareas, setParkAreas] = useState([]);
+    const [parkarea, setParkArea] = useState({name: "", theme: ""});
+    const [attractions, setAttractions] = useState([]);
 
-    const getParks = () => {
-        return fetch("http://127.0.0.1:8000/parkareas")
+    const getPark = () => {
+        return fetch(`http://127.0.0.1:8000/parkareas/${props.parkAreaId}`)
             .then(response => response.json())
-            .then(parsedResp => setParkAreas(parsedResp));
+            .then(parsedResp => setParkArea({
+                name: parsedResp.name,
+                theme: parsedResp.theme
+            }));
+    };
+
+    const getAttractions = () => {
+        return fetch("http://127.0.0.1:8000/attractions")
+            .then(response => response.json())
+            .then(attractions => setAttractions(attractions));
     };
 
     useEffect(() => {
-        getParks();
-    }, []);
+        getPark();
+        getAttractions();
+    }, [props.parkAreaId]);
 
     return (
         <>
             <section>
+                <h2>
+                    {parkarea.name}
+                </h2>
+                <p>
+                    {parkarea.theme}
+                </p>
+
                 <ul>
-                {parkareas.map(park =>
-                    <p key={park.id}>{park.name}</p>
-                )}
+                    {attractions.map(attraction => {
+                        if (attraction.area.name === parkarea.name) {
+                            return <li key={attraction.name}>{attraction.name}</li>
+                        }
+                    })}
                 </ul>
             </section>
         </>

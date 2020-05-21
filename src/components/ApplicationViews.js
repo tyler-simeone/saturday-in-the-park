@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React from "react";
 import ParkArea from './parkarea/parkarea'
 import ParkAreaDetail from './parkarea/parkdetail'
@@ -18,11 +18,11 @@ const ApplicationViews = props => {
         />
         <Route
           exact
-          path="/park/:/parkId(\d+)"
+          path="/park/:parkId(\d+)"
           render={props => {
             return (
                 <ParkAreaDetail 
-                parkAreaId={parseInt(props.match.params.animalId)}
+                parkAreaId={parseInt(props.match.params.parkId)}
                 {...props} 
                 />
             );

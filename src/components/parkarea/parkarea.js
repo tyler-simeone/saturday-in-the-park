@@ -19,8 +19,8 @@ const ParkArea = props => {
             <section>
                 <ul>
                 {parkareas.map(park =>
-                    <Link to={`/park/${park.id}`}>
-                        <p key={park.id}>{park.name}</p>
+                    <Link key={park.id} to={`/park/${park.id}`}>
+                        <p>{park.name}</p>
                     </Link>
                 )}
                 </ul>
