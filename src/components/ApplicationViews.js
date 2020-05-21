@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import React from "react";
 import ParkArea from './parkarea/parkarea'
 import ParkAreaDetail from './parkarea/parkdetail'
-import Itinerary from './itinerary'
+import Itinerary from './itinerary/itinerary'
 
 const ApplicationViews = props => {
   

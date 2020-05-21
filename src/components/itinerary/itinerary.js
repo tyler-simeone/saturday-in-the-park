@@ -18,14 +18,10 @@ const Itinerary = props => {
             <section>
                 <ul>
                 {itineraries.map(itinerary =>
-                    <>
-                    {/* <p key={park.id}>{park.name}</p> */}
-                    {console.log(itinerary)}
-                        {/* <p>{park.attractions.forEach(attraction => (
-                            // console.log(attraction.name)
-                            <p key={attraction.id}>{attraction.name}</p>
-                        ))}</p> */}
-                    </>
+                    <section key={itinerary.id}>
+                        <p>Attraction: {itinerary.attraction.name}</p>
+                        <p>Start time: {itinerary.starttime}</p>
+                    </section>
                 )}
                 </ul>
             </section>
